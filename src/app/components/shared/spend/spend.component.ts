@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Spend } from 'src/app/services/spend';
 
 @Component({
   selector: 'app-spend',

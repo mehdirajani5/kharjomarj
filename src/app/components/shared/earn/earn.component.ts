@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Earn } from 'src/app/services/earn';
 
 @Component({
   selector: 'app-earn',
