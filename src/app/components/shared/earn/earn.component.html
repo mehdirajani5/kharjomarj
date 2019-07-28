@@ -1,1 +1,19 @@
-<p>earn works!</p>
+<!-- Earn form -->
+<form class="my-3" [formGroup]="earnForm">
+    <div class="input-group">
+        <!-- Submit -->
+        <div class="input-group-append">
+            <button class="btn btn-sm btn-info">
+                <fa-icon fixedWidth="true" icon="plus"></fa-icon>
+            </button>
+        </div>
+        <!-- Name -->
+        <input class="form-control" type="text" formControlName="name" placeholder="from...">
+        <!-- Amount -->
+        <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
+        <!-- Date -->
+        <input class="form-control" type="date" formControlName="date">
+        <!-- description -->
+        <input class="form-control" type="text" formControlName="description" placeholder="Description">
+    </div>
+</form>

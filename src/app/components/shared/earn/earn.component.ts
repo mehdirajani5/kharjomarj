@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Earn } from 'src/app/services/earn';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-earn',
@@ -8,9 +9,28 @@ import { Earn } from 'src/app/services/earn';
 })
 export class EarnComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * List of earns.
+   */
+  earns: Earn[] = [];
 
-  ngOnInit() {
+  /**
+   * earn form.
+   */
+  earnForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    /**
+     * Setup earn form.
+     */
+    this.earnForm = this.formBuilder.group({
+      name: [null],
+      amount: [null],
+      date: [null],
+      description: [null],
+    });
   }
 
 }
