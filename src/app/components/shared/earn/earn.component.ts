@@ -33,4 +33,12 @@ export class EarnComponent implements OnInit {
     });
   }
 
+  /**
+   * Add an earn amount.
+   */
+  addEarn(): void {
+    const data = this.earnForm.value;
+    this.earns.unshift(new Earn(data.name, data.amount, data.date, data.description));
+    this.earnForm.reset();
+  }
 }

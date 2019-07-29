@@ -1,5 +1,5 @@
 <!-- Earn form -->
-<form class="my-3" [formGroup]="earnForm">
+<form class="my-3" [formGroup]="earnForm" (ngSubmit)="addEarn()">
     <div class="input-group">
         <!-- Submit -->
         <div class="input-group-append">
@@ -17,3 +17,14 @@
         <input class="form-control" type="text" formControlName="description" placeholder="Description">
     </div>
 </form>
+
+<!-- earn list -->
+<div class="card my-3" *ngFor="let earn of this.earns">
+    <div class="card-header">{{ earn.date }}</div>
+    <div class="card-body">
+        <h5 class="font-weight-bold">From: {{ earn.name }}
+            <span class="float-right text-success">{{ earn.amount }}</span>
+        </h5>
+        <p>{{ earn.description }}</p>
+    </div>
+</div>
