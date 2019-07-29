@@ -2,8 +2,8 @@
 <form class="my-3" [formGroup]="earnForm" (ngSubmit)="addEarn()">
     <div class="input-group">
         <!-- Submit -->
-        <div class="input-group-append">
-            <button class="btn btn-sm btn-info">
+        <div class="input-group-append mr-1">
+            <button class="btn btn-sm btn-info" [disabled]="earnForm.invalid">
                 <fa-icon fixedWidth="true" icon="plus"></fa-icon>
             </button>
         </div>
@@ -19,12 +19,24 @@
 </form>
 
 <!-- earn list -->
-<div class="card my-3" *ngFor="let earn of this.earns">
-    <div class="card-header">{{ earn.date }}</div>
-    <div class="card-body">
-        <h5 class="font-weight-bold">From: {{ earn.name }}
+<div class="card my-1" *ngFor="let earn of this.earns" (click)="earn.expand = !earn.expand">
+    <!-- Date -->
+    <div class="card-header text-center">{{ earn.date }}</div>
+    <div class="card-body" *ngIf="earn.expand">
+        <h5 class="font-weight-bold">
+            <!-- Name -->
+            <span>{{ earn.name }}</span>
+            <!-- Amount -->
             <span class="float-right text-success">{{ earn.amount }}</span>
         </h5>
-        <p>{{ earn.description }}</p>
+        <!-- description -->
+        <p class="font-weight-bold">{{ earn.description }}</p>
+        <!-- Buttons -->
+        <div class="card-footer">
+            <button class="btn btn-danger btn-block" (click)="deleteEarn(earn)">Delete</button>
+        </div>
     </div>
 </div>
+
+<!-- No earns text -->
+<p class="text-secondary mt-3 text-center" *ngIf="!this.earns.length">You don't have any earns!!</p>
