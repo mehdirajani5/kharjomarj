@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Earn } from 'src/app/services/earn';
+import { Earn } from 'src/app/models/earn';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
