@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EarnComponent implements OnInit {
 
+  expand: boolean;
+
   /**
    * List of earns.
    */
@@ -74,5 +76,13 @@ export class EarnComponent implements OnInit {
     }
     this.earns.splice(this.earns.indexOf(earn), 1);
     this.saveEarns();
+  }
+
+  get total() {
+    let sum = 0;
+    for (const total of this.earns) {
+      sum += total.amount;
+    }
+    return sum;
   }
 }
