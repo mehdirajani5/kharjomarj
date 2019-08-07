@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Earn } from 'src/app/models/earn';
+import { Income } from 'src/app/models/income';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-earn',
-  templateUrl: './earn.component.html',
-  styleUrls: ['./earn.component.scss']
+  selector: 'app-income',
+  templateUrl: './income.component.html',
+  styleUrls: ['./income.component.scss']
 })
-export class EarnComponent implements OnInit {
+export class IncomeComponent implements OnInit {
 
   expand: boolean;
 
   /**
    * List of earns.
    */
-  earns: Earn[] = [];
+  earns: Income[] = [];
 
   /**
-   * earn form.
+   * income form.
    */
   earnForm: FormGroup;
 
@@ -25,7 +25,7 @@ export class EarnComponent implements OnInit {
 
   ngOnInit(): void {
     /**
-     * Setup earn form.
+     * Setup income form.
      */
     this.earnForm = this.formBuilder.group({
       name: [null, Validators.required],
@@ -45,7 +45,7 @@ export class EarnComponent implements OnInit {
   loadEarns() {
     if (localStorage.getItem('earns')) {
       for (const item of JSON.parse(localStorage.getItem('earns'))) {
-        this.earns.push(new Earn(item.name, item.amount, item.date, item.description));
+        this.earns.push(new Income(item.name, item.amount, item.date, item.description));
       }
     }
   }
@@ -58,20 +58,20 @@ export class EarnComponent implements OnInit {
   }
 
   /**
-   * Add an earn amount.
+   * Add an income amount.
    */
   addEarn(): void {
     const data = this.earnForm.value;
-    this.earns.unshift(new Earn(data.name, data.amount, data.date, data.description));
+    this.earns.unshift(new Income(data.name, data.amount, data.date, data.description));
     this.saveEarns();
     this.earnForm.reset();
   }
 
   /**
-   * Delete an earn and save to local storage.
+   * Delete an income and save to local storage.
    */
-  deleteEarn(earn: Earn): void {
-    if (!confirm('Are you you want to delete this earn?')) {
+  deleteEarn(earn: Income): void {
+    if (!confirm('Are you you want to delete this income?')) {
       return;
     }
     this.earns.splice(this.earns.indexOf(earn), 1);

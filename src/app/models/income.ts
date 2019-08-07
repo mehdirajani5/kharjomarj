@@ -1,4 +1,4 @@
-export class Earn {
+export class Income {
   name: string;
   amount: number;
   date: Date;

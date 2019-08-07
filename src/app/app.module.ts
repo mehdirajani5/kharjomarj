@@ -8,16 +8,16 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { EarnComponent } from './components/shared/earn/earn.component';
-import { SpendComponent } from './components/shared/spend/spend.component';
+import { IncomeComponent } from 'src/app/components/shared/income/income.component';
+import { ExpenseComponent } from 'src/app/components/shared/expense/expense.component';
 import { TotalComponent } from './components/shared/total/total.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SpendComponent,
-    EarnComponent,
+    ExpenseComponent,
+    IncomeComponent,
     TotalComponent,
   ],
   imports: [
