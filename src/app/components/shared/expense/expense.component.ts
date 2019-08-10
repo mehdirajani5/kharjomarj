@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Expense } from 'src/app/models/expense';
 
 @Component({
-  selector: 'app-spend',
+  selector: 'app-expense',
   templateUrl: './expense.component.html',
   styleUrls: ['./expense.component.scss']
 })
