@@ -14,7 +14,7 @@ export class IncomeComponent implements OnInit {
   /**
    * List of earns.
    */
-  earns: Income[] = [];
+  incomes: Income[] = [];
 
   /**
    * income form.
@@ -45,7 +45,7 @@ export class IncomeComponent implements OnInit {
   loadEarns() {
     if (localStorage.getItem('earns')) {
       for (const item of JSON.parse(localStorage.getItem('earns'))) {
-        this.earns.push(new Income(item.name, item.amount, item.date, item.description));
+        this.incomes.push(new Income(item.name, item.amount, item.date, item.description));
       }
     }
   }
@@ -54,7 +54,7 @@ export class IncomeComponent implements OnInit {
    * Save earns to localstorage.
    */
   saveEarns(): void {
-    localStorage.setItem('earns', JSON.stringify(this.earns));
+    localStorage.setItem('earns', JSON.stringify(this.incomes));
   }
 
   /**
@@ -62,7 +62,7 @@ export class IncomeComponent implements OnInit {
    */
   addEarn(): void {
     const data = this.earnForm.value;
-    this.earns.unshift(new Income(data.name, data.amount, data.date, data.description));
+    this.incomes.unshift(new Income(data.name, data.amount, data.date, data.description));
     this.saveEarns();
     this.earnForm.reset();
   }
@@ -74,13 +74,13 @@ export class IncomeComponent implements OnInit {
     if (!confirm('Are you you want to delete this income?')) {
       return;
     }
-    this.earns.splice(this.earns.indexOf(earn), 1);
+    this.incomes.splice(this.incomes.indexOf(earn), 1);
     this.saveEarns();
   }
 
   get total() {
     let sum = 0;
-    for (const total of this.earns) {
+    for (const total of this.incomes) {
       sum += total.amount;
     }
     return sum;
