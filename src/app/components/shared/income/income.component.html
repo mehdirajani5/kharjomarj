@@ -27,7 +27,7 @@
 </form>
 
 <!-- income list -->
-<div class="card my-1" *ngFor="let earn of this.earns" (click)="earn.expand = !earn.expand">
+<div class="card my-1" *ngFor="let earn of this.incomes" (click)="earn.expand = !earn.expand">
     <!-- Date -->
     <div class="card-header text-center font-weight-bold">{{ earn.date }}</div>
     <div class="card-body" *ngIf="earn.expand">
@@ -47,4 +47,4 @@
 </div>
 
 <!-- No earns text -->
-<p class="text-secondary mt-3 text-center" *ngIf="!this.earns.length">You don't have any earns!!</p>
+<p class="text-secondary mt-3 text-center" *ngIf="!this.incomes.length">You don't have any earns!!</p>
