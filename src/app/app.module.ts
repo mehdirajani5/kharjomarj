@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { IncomeComponent } from 'src/app/components/shared/income/income.component';
 import { ExpenseComponent } from 'src/app/components/shared/expense/expense.component';
-import { TotalComponent } from './components/shared/total/total.component';
+import { AddComponent } from 'src/app/components/shared/add/add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { TotalComponent } from './components/shared/total/total.component';
     HomeComponent,
     ExpenseComponent,
     IncomeComponent,
-    TotalComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,
