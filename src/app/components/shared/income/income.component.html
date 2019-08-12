@@ -1,49 +1,49 @@
-<h5>
-    Total {{ total }}
-</h5>
+<h5>Total {{ total }}</h5>
+
 <!-- Submit -->
 <div class="mb-1">
-    <button class="btn btn-sm btn-secondary btn-block" (click)="expand = !expand">
-        <fa-icon fixedWidth="true" icon="plus"></fa-icon>
-    </button>
+  <button class="btn btn-sm btn-secondary btn-block" (click)="expand = !expand">
+    <fa-icon fixedWidth="true" icon="plus"></fa-icon>
+  </button>
 </div>
+
 <!-- Income form -->
 <form class="my-3" [formGroup]="earnForm" (ngSubmit)="addEarn()">
-    <div *ngIf="expand">
-        <!-- Name -->
-        <input class="form-control" type="text" formControlName="name" placeholder="from...">
-        <!-- Amount -->
-        <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
-        <!-- Date -->
-        <input class="form-control" type="date" formControlName="date">
-        <!-- description -->
-        <input class="form-control" type="text" formControlName="description" placeholder="Description">
-        <!-- Submit -->
-        <div class="input-group-append mt-1">
-            <button class="btn btn-sm btn-info btn-block" [disabled]="earnForm.invalid">Add
-            </button>
-        </div>
+  <div *ngIf="expand">
+    <!-- Name -->
+    <input class="form-control" type="text" formControlName="name" placeholder="from...">
+    <!-- Amount -->
+    <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
+    <!-- Date -->
+    <input class="form-control" type="date" formControlName="date">
+    <!-- description -->
+    <input class="form-control" type="text" formControlName="description" placeholder="Description">
+    <!-- Submit -->
+    <div class="input-group-append mt-1">
+      <button class="btn btn-sm btn-info btn-block" [disabled]="earnForm.invalid">Add</button>
     </div>
+  </div>
 </form>
 
-<!-- income list -->
+<!-- Income list -->
 <div class="card my-1" *ngFor="let earn of this.incomes" (click)="earn.expand = !earn.expand">
-    <!-- Date -->
-    <div class="card-header text-center font-weight-bold">{{ earn.date }}</div>
-    <div class="card-body" *ngIf="earn.expand">
-        <h5 class="">From:
-            <!-- Name -->
-            <span class="font-weight-bolder">{{ earn.name }}</span>
-            <!-- Amount -->
-            <span class="float-right text-success font-weight-bold">{{ earn.amount }}</span>
-        </h5>
-        <!-- description -->
-        <p class="font-weight-bold">{{ earn.description }}</p>
-        <!-- Buttons -->
-        <div class="card-footer">
-            <button class="btn btn-danger btn-block" (click)="deleteEarn(earn)">Delete</button>
-        </div>
+  <!-- Date -->
+  <div class="card-header text-center font-weight-bold">{{ earn.date }}</div>
+  <div class="card-body" *ngIf="earn.expand">
+    <h5>
+      From:
+      <!-- Name -->
+      <span class="font-weight-bolder">{{ earn.name }}</span>
+      <!-- Amount -->
+      <span class="float-right text-success font-weight-bold">{{ earn.amount }}</span>
+    </h5>
+    <!-- description -->
+    <p class="font-weight-bold">{{ earn.description }}</p>
+    <!-- Buttons -->
+    <div class="card-footer">
+      <button class="btn btn-danger btn-block" (click)="deleteEarn(earn)">Delete</button>
     </div>
+  </div>
 </div>
 
 <!-- No earns text -->
