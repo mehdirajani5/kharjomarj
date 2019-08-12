@@ -9,18 +9,28 @@
 
 <!-- Income form -->
 <form class="my-3" [formGroup]="earnForm" (ngSubmit)="addEarn()">
-  <div *ngIf="expand">
-    <!-- Name -->
-    <input class="form-control" type="text" formControlName="name" placeholder="from...">
-    <!-- Amount -->
-    <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
-    <!-- Date -->
-    <input class="form-control" type="date" formControlName="date">
-    <!-- description -->
-    <input class="form-control" type="text" formControlName="description" placeholder="Description">
-    <!-- Submit -->
-    <div class="input-group-append mt-1">
-      <button class="btn btn-sm btn-info btn-block" [disabled]="earnForm.invalid">Add</button>
+  <div class="card">
+    <div *ngIf="expand" class="card-body">
+      <!-- Name -->
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="name" placeholder="From">
+      </div>
+      <!-- Amount -->
+      <div class="form-group">
+        <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
+      </div>
+      <!-- Date -->
+      <div class="form-group">
+        <input class="form-control" type="date" formControlName="date">
+      </div>
+      <!-- description -->
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="description" placeholder="Description">
+      </div>
+      <!-- Submit -->
+      <div class="input-group-append mt-1">
+        <button class="btn btn-sm btn-info btn-block" [disabled]="earnForm.invalid">Add</button>
+      </div>
     </div>
   </div>
 </form>
@@ -37,12 +47,12 @@
       <!-- Amount -->
       <span class="float-right text-success font-weight-bold">{{ earn.amount }}</span>
     </h5>
-    <!-- description -->
+    <!-- Description -->
     <p class="font-weight-bold">{{ earn.description }}</p>
-    <!-- Buttons -->
-    <div class="card-footer">
-      <button class="btn btn-danger btn-block" (click)="deleteEarn(earn)">Delete</button>
-    </div>
+  </div>
+  <!-- Buttons -->
+  <div class="card-footer" *ngIf="earn.expand">
+    <button class="btn btn-danger btn-block" (click)="deleteEarn(earn)">Delete</button>
   </div>
 </div>
 
