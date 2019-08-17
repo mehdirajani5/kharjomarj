@@ -1,1 +1,55 @@
-<p>spend works!</p>
+<!-- Get total expenses -->
+<div>
+  <h5 class="float-left font-weight-bold">Total</h5>
+  <h5 class="font-weight-bold float-right text-danger">{{ total }}</h5>
+</div>
+<!-- Submit -->
+<div class="mb-2">
+  <button class="btn btn-sm btn-danger btn-block" (click)="collapse = !collapse">
+    <fa-icon fixedWidth="true" icon="plus"></fa-icon>
+  </button>
+</div>
+<!-- Expense form -->
+<form class="my-3 form" [formGroup]="expenseForm" (ngSubmit)="addExpense()"
+      [collapse]="!collapse" [isAnimated]="true">
+  <div class="py-3 bg-light rounded">
+    <!-- Name -->
+    <input class="form-control" type="text" formControlName="name" placeholder="For...">
+    <!-- Amount -->
+    <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
+    <!-- Date -->
+    <input class="form-control" type="date" formControlName="date">
+    <!-- description -->
+    <input class="form-control" type="text" formControlName="description" placeholder="Description">
+    <!-- Submit -->
+    <div class="input-group-append mt-1">
+      <button class="btn btn-sm btn-info btn-block rounded-0" [disabled]="expenseForm.invalid">Add
+      </button>
+    </div>
+  </div>
+</form>
+
+<!-- Expense list -->
+<div class="card my-1" *ngFor="let expense of this.expenses" (click)="expense.collapse = !expense.collapse">
+  <!-- Date -->
+  <div class="card-header text-center font-weight-bold">{{ expense.date }}</div>
+  <div class="card-body" [collapse]="!expense.collapse" [isAnimated]="true">
+    <h5 class="">For:
+      <!-- Name -->
+      <span class="font-weight-bolder">{{ expense.name }}</span>
+      <!-- Amount -->
+      <span class="float-right text-danger font-weight-bold">{{ expense.amount }}</span>
+    </h5>
+    <!-- description -->
+    <p class="font-weight-bold">{{ expense.description }}</p>
+  </div>
+  <!-- Buttons -->
+  <div class="card-footer" [collapse]="!expense.collapse" [isAnimated]="true">
+    <button class="btn btn-sm btn-danger btn-block" (click)="deleteExpense(expense)">
+      <fa-icon fixedWidth="true" icon="trash"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<!-- No expenses text -->
+<p class="text-secondary mt-3 text-center" *ngIf="!this.expenses.length">You don't have any expenses!</p>

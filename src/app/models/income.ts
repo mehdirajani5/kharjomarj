@@ -3,7 +3,7 @@ export class Income {
   amount: number;
   date: Date;
   description: string;
-  expand: boolean;
+  collapse: boolean;
 
   constructor(name: string, amount: number, date: Date, description: string) {
     this.name = name;

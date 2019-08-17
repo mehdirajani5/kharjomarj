@@ -1,60 +1,57 @@
-<h5>Total {{ total }}</h5>
-
+<!-- Get total incomes -->
+<div>
+  <h5 class="float-left font-weight-bold">Total</h5>
+  <h5 class="font-weight-bold float-right text-success">{{ total }}</h5>
+</div>
 <!-- Submit -->
-<div class="mb-1">
-  <button class="btn btn-sm btn-secondary btn-block" (click)="expand = !expand">
+<div class="mb-2">
+  <button class="btn btn-sm btn-success btn-block" (click)="collapse = !collapse">
     <fa-icon fixedWidth="true" icon="plus"></fa-icon>
   </button>
 </div>
 
 <!-- Income form -->
-<form class="my-3" [formGroup]="earnForm" (ngSubmit)="addEarn()">
-  <div class="card">
-    <div *ngIf="expand" class="card-body">
-      <!-- Name -->
-      <div class="form-group">
-        <input class="form-control" type="text" formControlName="name" placeholder="From">
-      </div>
-      <!-- Amount -->
-      <div class="form-group">
-        <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
-      </div>
-      <!-- Date -->
-      <div class="form-group">
-        <input class="form-control" type="date" formControlName="date">
-      </div>
-      <!-- description -->
-      <div class="form-group">
-        <input class="form-control" type="text" formControlName="description" placeholder="Description">
-      </div>
-      <!-- Submit -->
-      <div class="input-group-append mt-1">
-        <button class="btn btn-sm btn-info btn-block" [disabled]="earnForm.invalid">Add</button>
-      </div>
+<form class="my-3 form" [formGroup]="incomeForm" (ngSubmit)="addIncome()"
+      [collapse]="!collapse" [isAnimated]="true">
+  <div class="py-3 bg-light rounded">
+    <!-- Name -->
+    <input class="form-control" type="text" formControlName="name" placeholder="From...">
+    <!-- Amount -->
+    <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
+    <!-- Date -->
+    <input class="form-control" type="date" formControlName="date">
+    <!-- description -->
+    <input class="form-control" type="text" formControlName="description" placeholder="Description">
+    <!-- Submit -->
+    <div class="input-group-append mt-1">
+      <button class="btn btn-sm btn-info btn-block rounded-0" [disabled]="incomeForm.invalid">Add
+      </button>
     </div>
   </div>
 </form>
 
 <!-- Income list -->
-<div class="card my-1" *ngFor="let earn of this.incomes" (click)="earn.expand = !earn.expand">
+<div class="card my-1" *ngFor="let income of this.incomes" (click)="income.collapse = !income.collapse">
   <!-- Date -->
-  <div class="card-header text-center font-weight-bold">{{ earn.date }}</div>
-  <div class="card-body" *ngIf="earn.expand">
+  <div class="card-header text-center font-weight-bold">{{ income.date }}</div>
+  <div class="card-body" [collapse]="!income.collapse" [isAnimated]="true">
     <h5>
       From:
       <!-- Name -->
-      <span class="font-weight-bolder">{{ earn.name }}</span>
+      <span class="font-weight-bolder">{{ income.name }}</span>
       <!-- Amount -->
-      <span class="float-right text-success font-weight-bold">{{ earn.amount }}</span>
+      <span class="float-right text-success font-weight-bold">{{ income.amount }}</span>
     </h5>
     <!-- Description -->
-    <p class="font-weight-bold">{{ earn.description }}</p>
+    <p class="font-weight-bold">{{ income.description }}</p>
   </div>
   <!-- Buttons -->
-  <div class="card-footer" *ngIf="earn.expand">
-    <button class="btn btn-danger btn-block" (click)="deleteEarn(earn)">Delete</button>
+  <div class="card-footer" [collapse]="!income.collapse" [isAnimated]="true">
+    <button class="btn btn-sm btn-danger btn-block" (click)="deleteIncome(income)">
+      <fa-icon fixedWidth="true" icon="trash"></fa-icon>
+    </button>
   </div>
 </div>
 
-<!-- No earns text -->
-<p class="text-secondary mt-3 text-center" *ngIf="!this.incomes.length">You don't have any earns!!</p>
+<!-- No incomes text -->
+<p class="text-secondary mt-3 text-center" *ngIf="!this.incomes.length">You don't have any incomes!</p>

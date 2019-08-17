@@ -9,75 +9,78 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class IncomeComponent implements OnInit {
 
-  expand: boolean;
+  collapse: boolean;
 
   /**
-   * List of earns.
+   * List of incomes
    */
   incomes: Income[] = [];
 
   /**
-   * income form.
+   * income form
    */
-  earnForm: FormGroup;
+  incomeForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     /**
-     * Setup income form.
+     * Setup income form
      */
-    this.earnForm = this.formBuilder.group({
+    this.incomeForm = this.formBuilder.group({
       name: [null, Validators.required],
       amount: [null, Validators.required],
       date: [null, Validators.required],
       description: [null, Validators.required],
     });
     /**
-     * Load all earns.
+     * Load all incomes
      */
-    this.loadEarns();
+    this.loadIncomes();
   }
 
   /**
-   * Load earns from localstorage.
+   * Load incomes from localstorage
    */
-  loadEarns() {
-    if (localStorage.getItem('earns')) {
-      for (const item of JSON.parse(localStorage.getItem('earns'))) {
+  loadIncomes() {
+    if (localStorage.getItem('incomes')) {
+      for (const item of JSON.parse(localStorage.getItem('incomes'))) {
         this.incomes.push(new Income(item.name, item.amount, item.date, item.description));
       }
     }
   }
 
   /**
-   * Save earns to localstorage.
+   * Save incomes to localstorage
    */
-  saveEarns(): void {
-    localStorage.setItem('earns', JSON.stringify(this.incomes));
+  saveIncomes(): void {
+    localStorage.setItem('incomes', JSON.stringify(this.incomes));
   }
 
   /**
-   * Add an income amount.
+   * Add an income amount
    */
-  addEarn(): void {
-    const data = this.earnForm.value;
+  addIncome(): void {
+    const data = this.incomeForm.value;
     this.incomes.unshift(new Income(data.name, data.amount, data.date, data.description));
-    this.saveEarns();
-    this.earnForm.reset();
+    this.saveIncomes();
+    this.incomeForm.reset();
   }
 
   /**
-   * Delete an income and save to local storage.
+   * Delete an income and save to local storage
    */
-  deleteEarn(earn: Income): void {
+  deleteIncome(income: Income): void {
     if (!confirm('Are you you want to delete this income?')) {
       return;
     }
-    this.incomes.splice(this.incomes.indexOf(earn), 1);
-    this.saveEarns();
+    this.incomes.splice(this.incomes.indexOf(income), 1);
+    this.saveIncomes();
   }
 
+  /**
+   * Get total incomes
+   */
   get total() {
     let sum = 0;
     for (const total of this.incomes) {
