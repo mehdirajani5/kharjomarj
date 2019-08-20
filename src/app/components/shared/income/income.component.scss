@@ -1,3 +1,6 @@
+$customY: #ff9940;
+$customB: #0d4546;
+
 .form input {
   height: 40px;
   width: 80%;
@@ -7,5 +10,31 @@
 }
 
 .form {
-  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  color: $customY !important;
+  background-color: $customB;
+}
+
+.body {
+  background-color: #0d454647;
+}
+
+.del {
+  border: none;
+  background: none;
+}
+
+hr {
+  width: 300px;
+  background-color: $customY;
+}
+
+.color-y {
+  color: $customY;
+}
+.color-b {
+  color: $customB;
 }

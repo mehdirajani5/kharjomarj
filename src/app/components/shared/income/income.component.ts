@@ -71,7 +71,7 @@ export class IncomeComponent implements OnInit {
    * Delete an income and save to local storage
    */
   deleteIncome(income: Income): void {
-    if (!confirm('Are you you want to delete this income?')) {
+    if (!confirm('Are you sure you want to delete this income?')) {
       return;
     }
     this.incomes.splice(this.incomes.indexOf(income), 1);

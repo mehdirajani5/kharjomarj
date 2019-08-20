@@ -1,6 +1,6 @@
 <!-- Get total expenses -->
 <div>
-  <h5 class="float-left font-weight-bold">Total</h5>
+  <h5 class="float-left font-weight-bold color-b">Total</h5>
   <h5 class="font-weight-bold float-right text-danger">{{ total }}</h5>
 </div>
 <!-- Submit -->
@@ -30,24 +30,25 @@
 </form>
 
 <!-- Expense list -->
-<div class="card my-1" *ngFor="let expense of this.expenses" (click)="expense.collapse = !expense.collapse">
+<div *ngFor="let expense of this.expenses" (click)="expense.collapse = !expense.collapse">
   <!-- Date -->
-  <div class="card-header text-center font-weight-bold">{{ expense.date }}</div>
-  <div class="card-body" [collapse]="!expense.collapse" [isAnimated]="true">
-    <h5 class="">For:
-      <!-- Name -->
-      <span class="font-weight-bolder">{{ expense.name }}</span>
-      <!-- Amount -->
-      <span class="float-right text-danger font-weight-bold">{{ expense.amount }}</span>
-    </h5>
-    <!-- description -->
-    <p class="font-weight-bold">{{ expense.description }}</p>
-  </div>
-  <!-- Buttons -->
-  <div class="card-footer" [collapse]="!expense.collapse" [isAnimated]="true">
-    <button class="btn btn-sm btn-danger btn-block" (click)="deleteExpense(expense)">
+  <div class="py-2 mb-2 header text-center font-weight-bold rounded shadow">{{ expense.date }}
+    <!-- Delete -->
+    <button class="text-danger del float-right" *ngIf="expense.collapse" (click)="deleteExpense(expense)">
       <fa-icon fixedWidth="true" icon="trash"></fa-icon>
     </button>
+  </div>
+  <div class="body mt-2 mb-2 shadow rounded" [collapse]="!expense.collapse" [isAnimated]="true">
+    <h5 class="container-fluid mt-2 font-weight-bold ">
+      <small class="color-b font-weight-bold">From:</small>
+      <!-- Name -->
+      <span class="color-b"> {{ expense.name }}</span>
+      <!-- Amount -->
+      <span class="float-right text-danger">{{ expense.amount }}</span>
+    </h5>
+    <hr>
+    <!-- Description -->
+    <p class="container-fluid font-weight-bold">{{ expense.description }}</p>
   </div>
 </div>
 

@@ -72,7 +72,7 @@ export class ExpenseComponent implements OnInit {
    * Delete an expense and save to local storage
    */
   deleteExpense(expense: Expense): void {
-    if (!confirm('Are you you want to delete this expense?')) {
+    if (!confirm('Are you sure you want to delete this expense?')) {
       return;
     }
     this.expenses.splice(this.expenses.indexOf(expense), 1);
