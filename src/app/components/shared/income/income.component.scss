@@ -1,3 +1,6 @@
+$customY: #ff9940;
+$customB: #0d4546;
+
 .form input {
   height: 40px;
   width: 80%;
@@ -11,8 +14,8 @@
 }
 
 .header {
-  color: #ff9940 !important;
-  background-color: #0d4546;
+  color: $customY !important;
+  background-color: $customB;
 }
 
 .body {
@@ -26,5 +29,12 @@
 
 hr {
   width: 300px;
-  background-color: #ff9940;
+  background-color: $customY;
+}
+
+.color-y {
+  color: $customY;
+}
+.color-b {
+  color: $customB;
 }

@@ -1,6 +1,6 @@
 <!-- Get total incomes -->
 <div>
-  <h5 class="float-left font-weight-bold">Total</h5>
+  <h5 class="float-left font-weight-bold color-b">Total</h5>
   <h5 class="font-weight-bold float-right text-success">{{ total }}</h5>
 </div>
 <!-- Submit -->
@@ -30,43 +30,20 @@
   </div>
 </form>
 
-<!--&lt;!&ndash; Income list &ndash;&gt;-->
-<!--<div class="card my-1" *ngFor="let income of this.incomes" (click)="income.collapse = !income.collapse">-->
-<!--  &lt;!&ndash; Date &ndash;&gt;-->
-<!--  <div class="card-header text-center font-weight-bold">{{ income.date }}</div>-->
-<!--  <div class="card-body" [collapse]="!income.collapse" [isAnimated]="true">-->
-<!--    <h5>-->
-<!--      From:-->
-<!--      &lt;!&ndash; Name &ndash;&gt;-->
-<!--      <span class="font-weight-bolder">{{ income.name }}</span>-->
-<!--      &lt;!&ndash; Amount &ndash;&gt;-->
-<!--      <span class="float-right text-success font-weight-bold">{{ income.amount }}</span>-->
-<!--    </h5>-->
-<!--    &lt;!&ndash; Description &ndash;&gt;-->
-<!--    <p class="font-weight-bold">{{ income.description }}</p>-->
-<!--  </div>-->
-<!--  &lt;!&ndash; Buttons &ndash;&gt;-->
-<!--  <div class="card-footer" [collapse]="!income.collapse" [isAnimated]="true">-->
-<!--    <button class="btn btn-sm btn-danger btn-block" (click)="deleteIncome(income)">-->
-<!--      <fa-icon fixedWidth="true" icon="trash"></fa-icon>-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
-
 <!-- Income list -->
 <div *ngFor="let income of this.incomes" (click)="income.collapse = !income.collapse">
   <!-- Date -->
-  <div class="py-2 header text-center font-weight-bold rounded shadow">{{ income.date }}
+  <div class="py-2 mb-2 header text-center font-weight-bold rounded shadow">{{ income.date }}
     <!-- Delete -->
     <button class="text-danger del float-right" *ngIf="income.collapse" (click)="deleteIncome(income)">
       <fa-icon fixedWidth="true" icon="trash"></fa-icon>
     </button>
   </div>
-  <div class="body mt-2 shadow rounded" [collapse]="!income.collapse" [isAnimated]="true">
+  <div class="body mt-2 mb-2 shadow rounded" [collapse]="!income.collapse" [isAnimated]="true">
     <h5 class="container-fluid mt-2 font-weight-bold ">
-      <small class="text-primary">From:</small>
+      <small class="color-b font-weight-bold">From:</small>
       <!-- Name -->
-      <span class="text-info"> {{ income.name }}</span>
+      <span class="color-b"> {{ income.name }}</span>
       <!-- Amount -->
       <span class="float-right text-success">{{ income.amount }}</span>
     </h5>
