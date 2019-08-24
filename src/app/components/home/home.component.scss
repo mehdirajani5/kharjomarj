@@ -1,0 +1,32 @@
+a {
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 6px;
+  border: none;
+  outline: none !important;
+  color: #0d4546;
+  border-radius: 2.5px;
+  transition: ease-in-out all 0.3s;
+  letter-spacing: 1px;
+  background: none;
+}
+
+a:hover {
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  color: #ff9940;
+  background-color: #0d4546;
+}
+
+a:focus {
+  letter-spacing: 3px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  color: #ff9940;
+  background-color: #0d4546;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,19 +1,22 @@
 <div class="container">
-  <div class="row my-2 justify-content-center">
+  <div class="d-flex justify-content-center">
 
     <!-- User money income -->
-    <div class="col-lg-4">
-      <app-income></app-income>
+    <div>
+      <a class="mr-3" routerLink="incomes">Incomes</a>
     </div>
 
-    <!-- User add money -->
-    <div class="col-lg-4">
-      <app-add></app-add>
+    <!-- User total money -->
+    <div>
+      <a class="mr-3" routerLink="total">Total</a>
     </div>
 
     <!-- User money expense -->
-    <div class="col-lg-4">
-      <app-expense></app-expense>
+    <div>
+      <a routerLink="expenses">Expenses</a>
     </div>
   </div>
 </div>
+
+<!-- Routing -->
+<router-outlet></router-outlet>
