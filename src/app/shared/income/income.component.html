@@ -1,0 +1,57 @@
+<!-- Get total incomes -->
+<div>
+  <h5 class="float-left font-weight-bold color-b">Total</h5>
+  <h5 class="font-weight-bold float-right text-success">{{ total }}</h5>
+</div>
+<!-- Submit -->
+<div class="mb-2">
+  <button class="btn btn-sm btn-success btn-block" (click)="collapse = !collapse">
+    <fa-icon fixedWidth="true" icon="plus"></fa-icon>
+  </button>
+</div>
+
+<!-- Income form -->
+<form class="my-3 form" [formGroup]="incomeForm" (ngSubmit)="addIncome()"
+      [collapse]="!collapse" [isAnimated]="true">
+  <div class="py-3 bg-light rounded">
+    <!-- Name -->
+    <input class="form-control" type="text" formControlName="name" placeholder="From...">
+    <!-- Amount -->
+    <input class="form-control" type="number" formControlName="amount" placeholder="Amount">
+    <!-- Date -->
+    <input class="form-control" type="date" formControlName="date">
+    <!-- description -->
+    <input class="form-control" type="text" formControlName="description" placeholder="Description">
+    <!-- Submit -->
+    <div class="input-group-append mt-1">
+      <button class="btn btn-sm btn-info btn-block rounded-0" [disabled]="incomeForm.invalid">Add
+      </button>
+    </div>
+  </div>
+</form>
+
+<!-- Income list -->
+<div *ngFor="let income of this.incomes" (click)="income.collapse = !income.collapse">
+  <!-- Date -->
+  <div class="py-2 mb-2 header text-center font-weight-bold rounded shadow">{{ income.date }}
+    <!-- Delete -->
+    <button class="text-danger del float-right" *ngIf="income.collapse" (click)="deleteIncome(income)">
+      <fa-icon fixedWidth="true" icon="trash"></fa-icon>
+    </button>
+  </div>
+  <div class="body mb-2 shadow rounded" [collapse]="!income.collapse" [isAnimated]="true">
+    <h5 class="container-fluid mt-2 font-weight-bold ">
+      <small class="color-b font-weight-bold">From:</small>
+      <!-- Name -->
+      <span class="color-b"> {{ income.name }}</span>
+      <!-- Amount -->
+      <span class="float-right text-success">{{ income.amount }}</span>
+    </h5>
+    <hr>
+    <!-- Description -->
+    <p class="container-fluid font-weight-bold">{{ income.description }}</p>
+  </div>
+</div>
+
+<!-- No incomes text -->
+<p class="text-secondary mt-3 text-center" *ngIf="!this.incomes.length">You don't have any incomes!</p>
