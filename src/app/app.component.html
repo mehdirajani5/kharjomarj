@@ -1,13 +1,13 @@
 <!-- Header -->
-<div class="text-center title mb-5 mt-3 pr-4">
+<div class="text-center title mb-5 mt-3">
     <a routerLink=""><h1 class="text-info">Kharjomarj</h1></a>
 </div>
 <!-- Pages -->
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-xl-6 col-lg-8">
+    <div class="col-md-6">
       <!-- Tabs -->
-      <ul class="nav nav-pills nav-fill mb-3">
+      <ul class="nav nav-fill mb-3 pl-3">
         <li class="nav-item mr-3" *ngFor="let tab of tabs">
           <a class="nav-link tab" routerLinkActive="active" [routerLink]="tab">{{ tab.toUpperCase() }}</a>
         </li>
