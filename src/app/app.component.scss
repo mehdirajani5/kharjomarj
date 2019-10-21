@@ -1,33 +1,30 @@
-.title {
-  font-family: "Ubuntu Condensed", sans-serif;
+.sidenav-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.tab {
-  font-size: 1.3em;
-  font-weight: 600;
-  padding: 6px;
-  border: none;
-  outline: none !important;
-  color: #0d4546;
-  border-radius: 2.5px;
-  transition: ease-in-out all 0.3s;
-  letter-spacing: 1px;
-  background: none;
+h1.app-name {
+  margin-left: 8px;
 }
 
-.tab:hover {
-  letter-spacing: 3px;
-  cursor: pointer;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-  color: #ff9940;
-  background-color: #0d4546;
+.sidenav {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
 }
 
-.nav-link.active {
-  color: #ff9940;
-  background-color: #0d4546;
+/**
+Remove button outline border on focus
+ */
+button:focus {
+  outline: none;
 }
 
-a {
-  text-decoration: none;
+div.mat-list-text {
+  padding-right: 16px;
 }

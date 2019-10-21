@@ -1,5 +1,13 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import {
+  MatTabsModule,
+  MatSidenavModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatListModule,
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -30,6 +38,12 @@ import { AppComponent } from './app.component';
     RouterModule,
     CollapseModule.forRoot(),
     ReactiveFormsModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

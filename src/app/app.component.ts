@@ -1,19 +1,19 @@
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
 
   /**
-   * Page tabs
-   * Tab names will be converted to uppercase.
+   * side nav
    */
-  readonly tabs: string[] = [
-    'income',
-    'total',
-    'expense',
-  ];
+  mobileQuery: MediaQueryList;
+
+  constructor(media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+  }
 }
