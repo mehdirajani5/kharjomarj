@@ -13,33 +13,26 @@
     <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'">
       <!-- Side items -->
       <mat-nav-list>
-        <h3 mat-subheader>Categories</h3>
-        <!-- Companies -->
-        <mat-list-item class="pr-3">
-          <mat-icon mat-list-icon>person</mat-icon>
-          <h5 mat-line>Companies</h5>
+        <!-- Dashboard -->
+        <mat-list-item>
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <h5 mat-line>Dashboard</h5>
         </mat-list-item>
-        <h3 mat-subheader>Management</h3>
-        <!-- Incomes -->
-        <mat-list-item class="pr-3">
-          <mat-icon mat-list-icon>assignment</mat-icon>
-          <h5 mat-line>Incomes</h5>
+        <!-- Properties -->
+        <mat-list-item>
+          <mat-icon mat-list-icon>category</mat-icon>
+          <h5 mat-line>Properties</h5>
         </mat-list-item>
-        <!-- Expenses -->
-        <mat-list-item class="pr-3">
-          <mat-icon mat-list-icon>domain</mat-icon>
-          <h5 mat-line>Expenses</h5>
-        </mat-list-item>
-        <!-- Total -->
-        <mat-list-item class="pr-3">
-          <mat-icon mat-list-icon>folder_shared</mat-icon>
-          <h5 mat-line>Total</h5>
+        <!-- Add -->
+        <mat-list-item>
+          <mat-icon mat-list-icon>add</mat-icon>
+          <h5 mat-line>Add</h5>
         </mat-list-item>
         <!-- divider -->
         <mat-divider></mat-divider>
         <!-- Settings -->
-        <mat-list-item class="pr-3">
-          <mat-icon mat-list-icon>folder_shared</mat-icon>
+        <mat-list-item>
+          <mat-icon mat-list-icon>settings</mat-icon>
           <h5 mat-line>Settings</h5>
         </mat-list-item>
       </mat-nav-list>
